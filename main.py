@@ -13,6 +13,8 @@ SENTENCE = (
 
 
 def main():
+    if len(SENTENCE) > 200 or "\n" in SENTENCE.strip():
+        raise ValueError("entry sentence must be one line of at most 200 characters")
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
